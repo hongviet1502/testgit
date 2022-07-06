@@ -1,0 +1,35 @@
+.modal-title{
+    color: #2C698D;
+    margin: 5px 0px 0px 15px;
+}
+.modal-edit{
+    width: 45vw;
+}
+.modal-body-text{
+    text-align: left;
+    font-size: 15px;
+    font-weight: 500;
+}
+.table-modal{
+    width: 45vw;
+}
+.row-modal input:focus{
+    outline: none;
+}
+
+.row-modal{
+    width: 100%;
+    display: flex;
+    margin: 10px 0;
+    font-size: 15px;
+}
+.lable-modal{
+    flex: 1;
+    text-align: left;
+}
+.input-modal{
+    flex: 3;
+    text-align: left;
+}
+
+

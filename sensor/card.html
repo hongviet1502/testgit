@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/manager/relay.css')}}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/base.css')}}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/5.0.0/normalize.min.css">
+    <link rel='stylesheet' href='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css'>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css" integrity="sha512-KfkfwYDsLkIlwQp6LFnl8zNdLGxu9YAA1QvwINks4PhcElQSvqcyVLLD9aMhXd13uQjoXtEKNosOWaZqXgel0g==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/setting/schedule.css')}}"> 
+    <link rel="stylesheet" href="card.css">
+    <link href='https://fonts.googleapis.com/css?family=Montserrat' rel='stylesheet'>
+    <link href='https://fonts.googleapis.com/css?family=Roboto' rel='stylesheet'>
+    <link rel="stylesheet" href="modal.css">
+        <title>Document</title>
+</head>
+<body>
+    <script src='//cdnjs.cloudflare.com/ajax/libs/jquery/2.2.2/jquery.min.js'></script>
+<script src='//maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js'></script>
+    <div class="view_item mt-2 mb-4">
+        <!-- <ul class= 'mb-2'> -->
+            <div class = 'item_schedule ml-2 mr-3 mt-2 mb-2' id = '{{sensor._id}}'>
+                <div class="card" ondblclick="handleEdit( '1','2', '3', 
+                            '4', '5', 
+                            '6', '7', '8');">
+                    <div class=" ml-1 card-header row">
+                        <div class='p-0 col-10 name-greenhouse'>
+                            <h5 class='text-long' style="letter-spacing: 0.5px;" >Cảm biến CO2</h5>
+                        </div>
+                    </div>
+
+                    <div class="card-body">
+                            <img class='icon-home' src= "/img/co2.png" alt=" " srcset=" ">
+                        <div class="card-body-infor">
+                           
+                            <p style="font-family:'Montserrat';font-style: medium;letter-spacing: 0.5px;" >Trạng thái: <span class="status">Online/Offline</span></p>
+                            <p style="font-family:'Montserrat';font-style: medium;letter-spacing: 0.5px;">Giá trị đo: <span class="red-text "> 50%</span></p>
+                            <!-- <div class='battery mt-0 pr-2' style="float: right;">
+                                <span class='battery'>60%</span>
+                                <i class=" mr-2 fa {{sensor.icon_battery}} " aria-hidden="true "></i>
+                            </div> -->
+                        </div>
+                    </div>
+                    <div class="card-updatetime">Thời cập nhật: 1 phút / lần</div>
+                    <div class="card-createtime">Thời gian tạo: 2 ngày trước</div>
+                </div>
+            </div>
+        <div  class='card_add ml-2 mr-3 mt-2 mb-2'>
+            <div class= 'new btn_add_sensor' data-toggle="modal" data-target="#modalLoadGreenhouses">
+                <i class="add-icon fa fa-plus" aria-hidden="true" ></i>
+                <p style="display: none;" id = "id_greenhouse">{{id_active}}</p>
+                <div class = 'name-icon'>
+                    Thêm thiết bị
+                </div>
+            </div>
+            
+        </div>
+        <!-- </ul> -->
+    </div>
+
+    <div class="modal fade" id="modalLoadGreenhouses" tabindex="-1" role="dialog" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered" role="document">
+          <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title">Đang dò tìm thiết bị...</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                  <span aria-hidden="true">&times;</span>
+                </button>
+              </div>
+            <div class="modal-body">
+                <div class="modal-body-text">Hệ thống đang dò tìm thiết bị tại.
+                    Vui lòng chờ trong giây lát.
+                </div>
+                <div class="wrapper">
+                    <div class="loader"></div>
+                    <img src="{{ url_for('static', filename='icons/loupe 1.png')}}" class="icon-search">
+                </div>
+                <h5 class="modal-title" id = "number">60s còn lại</h5>
+            </div>
+            <div class="modal-footer" style="display: none;">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Hủy bỏ</button>
+                <button  type="button" class="btn btn-primary btn_add_sensor">Thử lại</button>
+            </div>
+          </div>
+        </div>
+    </div>
+    <div class="modal fade" id="modalCreateSensors" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered table-modal" role="document">
+          <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title">Danh sách thiết bị khả dụng</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                  <span aria-hidden="true">&times;</span>
+                </button>
+              </div>
+            <div class="modal-body">
+                <div class="table-container">
+                    <table class="table_TK">
+                        <tbody class="table-body" id = "tbody">
+                            <tr class='table-row table-header'>
+                                <th scope="col" class="cell-fullname">THIẾT BỊ KHẢ DỤNG</th>
+                                <th scope="col" class="cell-fullname">ĐỊA CHỈ MAC</th>
+                                <th scope="col">THÊM</th>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+            <div class="modal-footer" style="display: none;">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Hủy bỏ</button>
+                <!-- <button type="button" class="btn btn-primary" >Đồng bộ</button> -->
+            </div>
+          </div>
+        </div>
+    </div>
+    <div class="modal fade" id="addSensor" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+        <div class="modal-dialog modal-lg modal-dialog-centered modal-edit" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">Thêm mới thiết bị</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <input id = "id_sensor_detail" style="display: none;">
+                    <div class="row input_user mb-3">
+                        <span class='lable-modal col-4'> TÊN THIẾT BỊ (*): </span>
+                        <input class='input-modal col-8' type="text" name="" id="name_temp">
+                    </div> 
+                    <div class="row input_user mb-3">
+                        <span class='lable-modal col-4'> LOẠI: </span>  
+                        <div class='input-modal col-8' id = "type_sensor"></div>
+                    </div>
+    
+                    <div class="row input_user mb-3">
+                        <span class='lable-modal col-4'> NHÀ KÍNH: </span>  
+                        <div class='input-modal col-8' id = "name_greenhouse"></div>
+                    </div>
+                    <div class="row input_user mb-3">
+                        <span class='col-4'>
+                            Thời gian cập nhật:
+                        </span>
+                        <input class='col-8' min = "0" type="number" id="timeUpdate" value="0">
+                    </div>
+                    <div class="row input_user mb-3">
+                        <span class='col-4'>
+                            MIN:
+                        </span>
+                        <input class='col-8' min = "0" type="number" id="min" placeholder="MIN" >
+                    </div>
+                    <div class="row input_user mb-3">
+                        <span class='col-4'>
+                            MAX:
+                        </span>
+                        <input class='col-8' min = "0" type="number" id="max" placeholder="MAX" >
+                    </div>
+                    <div class="row input_user mb-3">
+                        <span class='col-2'>
+                            CAB1:
+                        </span>
+                        <input class='col-2' min = "0" type="number" id="calib1" >
+    
+                        <span class='col-2'>
+                            CAB2:
+                        </span>
+                        <input class='col-2' min = "0" type="number"  id="calib2">
+    
+                        <span class='col-2'>
+                            CAB3:
+                        </span>
+                        <input class='col-2' min = "0" type="number" id="calib3">
+                    </div>
+                    
+                </div>
+                <div class="modal-footer">
+                    <button id='close_modal' type="button" class="btn btn-secondary" data-dismiss="modal">Hủy bỏ</button>
+                    <button type="button" class="btn btn-primary" onclick="handleAdd();">Thêm mới</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="modal fade" id="modalEditRelay" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+        <div class="modal-dialog modal-lg modal-dialog-centered modal-edit" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">Sửa thiết bị</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <div class="row input_user mb-3">
+                        <span class='col-4'>
+                            Tên cảm biến:
+                        </span>
+                        <input class='col-8' type="text" name="" id="name_relay">
+                    </div>
+    
+                    <div class="row input_user mb-3" style="display: none;">
+                        <span class='col-4'>
+                            ID:
+                        </span>
+                        <input class='col-8' type="text" id="mac_relay" >
+                    </div>
+                    <div class="row input_user mb-3">
+                        <span class='col-4'>
+                            Thời gian cập nhật:
+                        </span>
+                        <input class='col-8 nb' min = "0" type="number" id="timeUpdate" value="">
+                    </div>
+                    <div class="row input_user mb-3">
+                        <span class='col-4'>
+                            Giá trị nhỏ nhất:
+                        </span>
+                        <input class='col-8 nb' type="number" min = "0" id="min" value="" placeholder="MIN" >
+                    </div>
+                    <div class="row input_user mb-3">
+                        <span class='col-4'>
+                            Giá trị lớn nhất:
+                        </span>
+                        <input class='col-8 nb' type="number" min = "0" id="max" value="" placeholder="MAX" >
+                    </div>
+                    
+                    <div class="row input_user mb-3">
+                        <span class='col-2'>
+                            CAB1:
+                        </span>
+                        <input class='col-2 ' type="number" min = "0" id="calib1" value="" >
+    
+                        <span class='col-2'>
+                            CAB2:
+                        </span>
+                        <input class='col-2 ' type="number" name="" id="calib2" value="" >
+    
+                        <span class='col-2'>
+                            CAB3:
+                        </span>
+                        <input class='col-2 ' type="number" name="" id="calib3" value="" >
+                    </div>
+                    
+                </div>
+                <div class="modal-footer">
+                    <button id='close_modal' type="button" class="btn btn-secondary" data-dismiss="modal">Hủy bỏ</button>
+                    <button id = 'edit_relay' type="button" class="btn btn-primary" >Cập nhật</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="./modal.js"></script>
+</body>
+</html>
