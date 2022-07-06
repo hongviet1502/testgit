@@ -1,0 +1,297 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./user.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css" integrity="sha512-KfkfwYDsLkIlwQp6LFnl8zNdLGxu9YAA1QvwINks4PhcElQSvqcyVLLD9aMhXd13uQjoXtEKNosOWaZqXgel0g==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link href='https://fonts.googleapis.com/css?family=Nunito' rel='stylesheet'>
+    <link href='https://fonts.googleapis.com/css?family=Roboto' rel='stylesheet'>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js " integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN " crossorigin="anonymous "></script>
+    <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js " integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q " crossorigin="anonymous "></script>
+   
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js " integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl " crossorigin="anonymous "></script>
+
+    <title>Users</title>
+</head>
+<body>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js" integrity="sha512-894YE6QWD5I59HgZOGReFYm4dnWc1Qt5NtvYSaNcOP+u1T9qYdvdihz0PPSiiqn/+/3e7Jo4EaG7TubfWGUrMQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="./user.js"></script>
+    <div class='slide-house border' style="display: flex; background-color: #B8E6E6;">
+        <div>Danh sách các tài khoản</div>
+    </div>
+    <div class="table-container">
+            <table class="table_TK">
+                <tbody class="table-body" id = "tbody">
+                    <tr class='table-row table-header'>
+                        <th  class="cell-stt">STT</th>
+                        <th  class="cell-fullname">HỌ VÀ TÊN</th>
+                        <th  class="cell-username">TÀI KHOẢN</th>
+                        <th  class="cell-type">LOẠI TÀI KHOẢN</th>
+                        <th  class="cell-greenhouse">NHÀ KÍNH</th>
+                        <th  class="cell-detail">CHI TIẾT</th>
+                    </tr>
+                    <tr class='table-row-break'> 
+                    
+                    
+                        <tr class='table-row' id = '1'>
+                            <td  class="cell-stt">1</td>
+                            <td  class="cell-fullname">1</td>
+                            <td  class="cell-username">1</td>
+                            <td  class="cell-type">User</td>
+                            <td  class="cell-greenhouse">1</td> 
+                            <td >
+                                <a  href="#" href="#" data-toggle="modal" data-target="#editAccount" onclick="handleEdit('{{ user._id }}');"><i class="fa-solid fa-pen-to-square"></i></a>
+                                <a href="#" data-toggle="modal" data-target="#deleteAccount" onclick="handleDelete('{{ user._id }}');"><i class="fa-solid fa-trash-can"></i></a>
+                            </td>
+                        </tr>
+                            <tr class='table-row' id = '1'>
+                                <td  class="cell-stt">1</td>
+                                <td  class="cell-fullname">1</td>
+                                <td  class="cell-username">1</td>
+                                <td  class="cell-type">User</td>
+                                <td  class="cell-greenhouse">1</td> 
+                                <td >
+                                    <a  href="#" href="#" data-toggle="modal" data-target="#editAccount" onclick="handleEdit('{{ user._id }}');"><i class="fa-solid fa-pen-to-square"></i></a>
+                                    <a href="#" data-toggle="modal" data-target="#deleteAccount" onclick="handleDelete('{{ user._id }}');"><i class="fa-solid fa-trash-can"></i></a>
+                                </td>
+                            </tr>
+                            <tr class='table-row' id = '1'>
+                                <td  class="cell-stt">1</td>
+                                <td  class="cell-fullname">1</td>
+                                <td  class="cell-username">1</td>
+                                <td  class="cell-type">User</td>
+                                <td  class="cell-greenhouse">1</td> 
+                                <td >
+                                    <a  href="#" href="#" data-toggle="modal" data-target="#editAccount" onclick="handleEdit('{{ user._id }}');"><i class="fa-solid fa-pen-to-square"></i></a>
+                                    <a href="#" data-toggle="modal" data-target="#deleteAccount" onclick="handleDelete('{{ user._id }}');"><i class="fa-solid fa-trash-can"></i></a>
+                                </td>
+                            </tr>
+                            <tr class='table-row' id = '1'>
+                                <td  class="cell-stt">1</td>
+                                <td  class="cell-fullname">1</td>
+                                <td  class="cell-username">1</td>
+                                <td  class="cell-type">User</td>
+                                <td  class="cell-greenhouse">1</td> 
+                                <td >
+                                    <a  href="#" href="#" data-toggle="modal" data-target="#editAccount" onclick="handleEdit('{{ user._id }}');"><i class="fa-solid fa-pen-to-square"></i></a>
+                                    <a href="#" data-toggle="modal" data-target="#deleteAccount" onclick="handleDelete('{{ user._id }}');"><i class="fa-solid fa-trash-can"></i></a>
+                                </td>
+                            </tr>
+                            <tr class='table-row' id = '1'>
+                                <td  class="cell-stt">1</td>
+                                <td  class="cell-fullname">1</td>
+                                <td  class="cell-username">1</td>
+                                <td  class="cell-type">User</td>
+                                <td  class="cell-greenhouse">1</td> 
+                                <td >
+                                    <a  href="#" href="#" data-toggle="modal" data-target="#editAccount" onclick="handleEdit('{{ user._id }}');"><i class="fa-solid fa-pen-to-square"></i></a>
+                                    <a href="#" data-toggle="modal" data-target="#deleteAccount" onclick="handleDelete('{{ user._id }}');"><i class="fa-solid fa-trash-can"></i></a>
+                                </td>
+                            </tr>
+                            <tr class='table-row' id = '1'>
+                                <td  class="cell-stt">1</td>
+                                <td  class="cell-fullname">1</td>
+                                <td  class="cell-username">1</td>
+                                <td  class="cell-type">User</td>
+                                <td  class="cell-greenhouse">1</td> 
+                                <td >
+                                    <a  href="#" href="#" data-toggle="modal" data-target="#editAccount" onclick="handleEdit('{{ user._id }}');"><i class="fa-solid fa-pen-to-square"></i></a>
+                                    <a href="#" data-toggle="modal" data-target="#deleteAccount" onclick="handleDelete('{{ user._id }}');"><i class="fa-solid fa-trash-can"></i></a>
+                                </td>
+                            </tr>
+                            <tr class='table-row' id = '1'>
+                                <td  class="cell-stt">1</td>
+                                <td  class="cell-fullname">1</td>
+                                <td  class="cell-username">1</td>
+                                <td  class="cell-type">User</td>
+                                <td  class="cell-greenhouse">1</td> 
+                                <td >
+                                    <a  href="#" href="#" data-toggle="modal" data-target="#editAccount" onclick="handleEdit('{{ user._id }}');"><i class="fa-solid fa-pen-to-square"></i></a>
+                                    <a href="#" data-toggle="modal" data-target="#deleteAccount" onclick="handleDelete('{{ user._id }}');"><i class="fa-solid fa-trash-can"></i></a>
+                                </td>
+                            </tr>
+
+                        
+                
+                </tbody>
+            </table>
+    </div>
+    <div class="modal fade" id="editAccount" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+        <div class="modal-dialog modal-lg modal-dialog-centered" role="document">
+            <div class="modal-content">
+                <input id="user_id_edit" style="display: none;"/>
+                <div class="modal-header">
+                    <h5 class="modal-title" id = "title_edit">Sửa tài khoản</h5>
+                    <!-- <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button> -->
+                </div>
+                <div class="modal-body">
+                    <div class="row input_user mb-4">
+                        <span class='col-4'>
+                            Họ và tên:
+                        </span>
+                        <input class='col-7' type="text" name="" id="name_account_edit">
+                    </div>
+
+                    <div class="row input_user mb-4">
+                        <span class='col-4'>
+                            Tài khoản:
+                        </span>
+                        <input class='col-7' type="text" name="" id="username_account_edit">
+                    </div>
+
+                    <div class="row input_user mb-4">
+                        <span class='col-4'>
+                            Mật khẩu:
+                        </span>
+                        <input class='col-7' type="password" name="" id="password_edit">
+                    </div>
+
+                    <div class="row input_user mb-4">
+                        <span class='col-4'>
+                            Nhắc lại mật khẩu:
+                        </span>
+                        <input class='col-7' type="password" name="" id="re_password_edit">
+                    </div>
+
+                    <div class="row input_user mb-4">
+                        <span class='col-4'>
+                            Loại:
+                        </span>
+                        <div class='col-7 form-group' >
+                            <select class="form-control" id="sel_type_account_edit">
+                                <!-- <option value=0>Super Admin</option> -->
+                                <option value=1>Admin</option>
+                                <option value=2>User</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <div class="row input_user mb-4">
+                        <span class='col-4'>
+                            Nhà kính:
+                        </span>
+                        <div class='col-7 form-group'>
+                            <select class="form-control" id="sel_type_greenhouse_edit">
+
+                                    <option value={{greenhouse._id}} >nha kinh1</option>
+                                    <option value={{greenhouse._id}} >nha kinh1</option>
+                            </select>
+                        </div>
+                    </div>
+
+                </div>
+                <div class="modal-footer">
+                    <button id='close_modal_edit' type="button" class="btn btn-secondary" data-dismiss="modal">Hủy bỏ</button>
+                    <button id = 'create_user_edit' type="button" class="btn btn-primary">Sửa</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="modal fade" id="deleteAccount" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered" role="document">
+          <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLongTitle">Xóa tài khoản</h5>
+                <!-- <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                  <span aria-hidden="true">&times;</span>
+                </button> -->
+              </div>
+            <div class="modal-body">
+              Bạn có chắc chắn muốn xóa tài khoản này không?
+              <input id="user_id_delete" style="display: none;"/>
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-secondary" data-dismiss="modal" id="close_modal_delete">Hủy</button>
+              <button type="button" class="btn btn-primary" onclick="comfirmDelete()">Xóa</button>
+            </div>
+          </div>
+        </div>
+    </div>
+    <button class="btn-add-account" data-toggle="modal" data-target="#addAccount">
+        <img src="{{ url_for('static', filename='icons/Profile.png')}}" alt="icon" class="icon-btn"/>
+        Thêm một tài khoản
+    </button>
+
+    <div class="modal fade" id="addAccount" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+        <div class="modal-dialog modal-lg modal-dialog-centered" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id = "title_edit">Thêm tài khoản</h5>
+                    <!-- <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button> -->
+                </div>
+                <div class="modal-body">
+                    <div class="row input_user mb-4">
+                        <span class='col-4'>
+                            Họ và tên:
+                        </span>
+                        <input class='col-7' type="text" name="" id="name_account">
+                    </div>
+
+                    <div class="row input_user mb-4">
+                        <span class='col-4'>
+                            Tài khoản:
+                        </span>
+                        <input class='col-7' type="text" name="" id="username_account">
+                    </div>
+
+                    <div class="row input_user mb-4">
+                        <span class='col-4'>
+                            Mật khẩu:
+                        </span>
+                        <input class='col-7' type="password" name="" id="password" ></input>    
+                    </div>
+
+                    <div class="row input_user mb-4">
+                        <span class='col-4'>
+                            Nhắc lại mật khẩu:
+                        </span>
+                        <input class='col-7' type="password" name="" id="re_password">
+                    </div>
+
+                    <div class="row input_user mb-4">
+                        <span class='col-4'>
+                            Loại:
+                        </span>
+                        <div class='col-7 form-group' id="type_account">
+                            <select class="form-control" id="sel_type_account">
+                                <!-- <option value=0 selected>Super Admin</option> -->
+                                <option value=1>Admin</option>
+                                <option value=2>User</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <div class="row input_user mb-4">
+                        <span class='col-4'>
+                            Nhà kính:
+                        </span>
+                        <div class='col-7 form-group'>
+                            <select class="form-control" id="sel_type_greenhouse">
+                              
+                                    <option value={{greenhouse._id}} >nha kinh1</option>
+                                    <option value={{greenhouse._id}} >nha kinh1</option>
+                            </select>
+                        </div>
+                    </div>
+
+                </div>
+                <div class="modal-footer">
+                    <button id='close_modal' type="button" class="btn btn-secondary" data-dismiss="modal">Hủy bỏ</button>
+                    <button id = 'create_user' type="button" class="btn btn-primary">Tạo mới</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
